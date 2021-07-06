@@ -1,13 +1,304 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --color-background: #e4d9ff;
+  --color-primary: #273469;
+  --color-primary-hover: #344588;
+  --color-secondary: #30343f;
+  --color-secondary-hover: #6c757d;
+  --color-light-accent: #fafaff;
+  --color-placeholder: #a5a5a5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/**********************************************/
+/*                 BASE STYLES                 /
+/**********************************************/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  background: var(--color-background);
+}
+
+hr {
+  color: var(--color-primary);
+  border: 1px solid;
+}
+
+/**********************************************/
+/*             TYPOGRAPHYC and TEXT            /
+/**********************************************/
+@font-face {
+  font-family: "Orbitron";
+  src: url(./assets/fonts/Orbitron.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: normal;
+  src: url(./assets/fonts/Roboto-Regular.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: bold;
+  src: url(./assets/fonts/Roboto-Black.ttf);
+  font-display: swap;
+}
+
+* {
+  font-family: "Roboto", sans-serif, "Ubuntu";
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: orbitron;
+  color: var(--color-primary);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+.col-form-label {
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+
+.calculator__number {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 991px) {
+  .calculator__number {
+    margin-top: 0rem;
+  }
+  .title {
+    text-align: left;
+  }
+}
+
+/**********************************************/
+/*                NAVEGATION BAR               /
+/**********************************************/
+.navbar {
+  width: 100%;
+  background-color: var(--color-primary);
+  font-size: 1.6rem;
+  color: var(--color-light-accent);
+}
+
+.navbar-brand {
+  width: 20rem;
+}
+
+.nav-item {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.2rem;
+}
+
+.nav-item:hover {
+  background: var(--color-primary-hover);
+}
+
+.navbar .navbar-toggler-icon {
+  height: 3rem;
+  width: 2.5rem;
+  color: var(--color-light-accent);
+}
+
+@media screen and (min-width: 991px) {
+  .nav-item {
+    border-top: 0;
+  }
+}
+
+/**********************************************/
+/*                   BUTTONS                   /
+/**********************************************/
+
+.btn {
+  font-size: 1.8rem;
+  border-radius: 0.6rem;
+}
+.btn-lg {
+  display: block;
+  width: 25rem;
+  height: 4rem;
+  margin: 1rem auto;
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-light-accent);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-light-accent);
+}
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-light-accent);
+}
+.btn-secondary:hover {
+  background-color: var(--color-secondary-hover);
+  color: var(--color-light-accent);
+}
+.nav-item button{
+  font-size: 1.6rem;
+  margin-right: 1rem;
+  border-radius: 0;
+}
+
+
+/**********************************************/
+/*                BMI CACULATOR                /
+/**********************************************/
+
+.calculator__body {
+  background: linear-gradient(#fff, var(--color-background)) no-repeat;
+  border-radius: 1.5rem;
+  padding: 5rem 2rem;
+}
+
+.calculator__image {
+  display: flex;
+  width: 16.6rem;
+  height: 30.8rem;
+  margin: 0 auto;
+}
+.calculator__controls {
+  margin-top: 2rem;
+}
+
+.calculator__buttons {
+  margin-top: 3rem;
+}
+
+.row.calculator__group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.calculator__label {
+  display: flex;
+  float: right;
+  width: 12rem;
+  margin: 0;
+  padding: 0;
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.calculator__group .form-control {
+  display: inline-block;
+  text-align: center;
+  border-radius: 1rem;
+  border: 1px solid var(--color-primary);
+  font-size: 1.4rem;
+  width: 6.5rem;
+  height: 4rem;
+}
+
+/**********************************************/
+/*                     ROW                     /
+/**********************************************/
+
+.row {
+  margin: 0 auto;
+}
+
+/**********************************************/
+/*                     HOME                    /
+/**********************************************/
+
+.whitout-hover:hover{
+  background: transparent;
+}
+
+/**********************************************/
+/*                TABLE RECORDS                /
+/**********************************************/
+
+.table-records {
+  width: 40rem;
+  margin: 0 auto 10rem auto;
+}
+
+.table-records thead {
+  font-size: 1.6rem;
+  color: var(--color-secondary);
+}
+
+.table-records tbody {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.table-records tbody tr {
+  background: var(--color-secondary);
+  color: var(--color-light-accent);
+  cursor:pointer;
+  margin-top: 1rem;
+  padding: 5rem;
+}
+
+.table-records tbody tr:hover {
+  background: var(--color-secondary-hover);
+  transition: 0.3s background ease-out;
+}
+
+.delete-icon {
+  color: var(--color-light-accent);
+  width: 2rem;
+  cursor: pointer;
+}
+.delete-icon:hover {
+  transform: scale(1.2);
+}
+
+/**********************************************/
+/*                   FOOOTER                   /
+/**********************************************/
+
+.block-footer {
+  text-align: center;
+  margin: 20rem auto 5rem auto;
+}
+
+.footer__image {
+  width: 23.4rem;
+}
+
+.block-footer p {
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  margin-top: 1rem;
 }
