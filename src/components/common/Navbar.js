@@ -16,7 +16,7 @@ export const Navbar = () => {
                                 srcSet={`${logoWebp} 1x, ${logoWebp2x} 2x`} />
                             <source type="image/png"
                                 srcSet={`${logoPng} 1x, ${logoPng2x} 2x`} />
-                            <img src={logoPng} alt="Logo Beesic" />
+                            <img src={logoPng} alt="logo Healthy Control" />
                         </picture>
 
                     </Link>
