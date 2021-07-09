@@ -4,6 +4,7 @@ import HealthyApp from './HealthyApp';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import "animate.css/animate.min.css";
 import './index.css';
 
 

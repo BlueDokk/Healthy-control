@@ -4,9 +4,9 @@ import logoFooter2x from '../../assets/images/logo-footer@2x.png';
 import logoFooterWebp from '../../assets/images/logo-footer.webp';
 import logoFooterWebp2x from '../../assets/images/logo-footer@2x.webp';
 
-export const Footer = () => {
+export const Footer = ({ classes = "" }) => {
     return (
-        <footer className="block-footer">
+        <footer className={`block-footer ${classes}`}>
 
             <picture>
                 <source type="image/webp"
@@ -17,7 +17,7 @@ export const Footer = () => {
             </picture>
 
 
-            <p>Copyright© 2021 Healthy Contro</p>
+            <p>Copyright© 2021 Healthy Control</p>
         </footer>
     )
 }

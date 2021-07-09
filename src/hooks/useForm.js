@@ -1,13 +1,16 @@
+import { useSelector } from 'react-redux';
 import Input from '../components/common/Input';
 
 export const Form = () => {
 
+    const {loading} =  useSelector(state => state.loading);
+
     const renderButton = (label, classes, type, onClick )=> {
         return <button
             type={type}
-            // className={`btn btn-${btnForm} btn-${btnClass} m-2`}
             className={classes}
             onClick={onClick}
+            disabled={loading}
         >{label}
         </button>
     };

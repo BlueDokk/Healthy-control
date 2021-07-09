@@ -4,8 +4,19 @@ import logoPng from '../../assets/images/logo.png';
 import logoPng2x from '../../assets/images/logo@2x.png';
 import logoWebp from '../../assets/images/logo.webp';
 import logoWebp2x from '../../assets/images/logo@2x.webp';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLogout } from './../../actions/auth';
 
 export const Navbar = () => {
+
+    const { username } = useSelector(state => state.auth);
+    const dispatch = useDispatch()
+
+    const handleLogout = () => {
+        dispatch(startLogout());
+        localStorage.clear();
+    };
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark">
@@ -54,14 +65,16 @@ export const Navbar = () => {
                     <ul className="navbar-nav ml-auto position-absolute top-0 end-0">
 
                         <li className="nav-item whitout-hover">
-                            <span className="nav-link whitout-hover">
-                                Javier Velasquez
+                            <span className="nav-item nav-link whitout-hover">
+                                { username }
                             </span>
                         </li>
 
                         <li className="nav-item">
                             <button
-                                className="nav-link btn"
+                                className="nav-item nav-link btn"
+                                type="button"
+                                onClick={handleLogout}
                             >
                                 Logout
                             </button>

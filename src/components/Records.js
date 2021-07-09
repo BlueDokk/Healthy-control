@@ -1,10 +1,31 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import DeleteSVG from '../assets/images/delete.svg';
+import { getRecordsFromFirestore, updateRecords } from './../actions/ui';
 
 export const Records = () => {
+
+    const dispatch = useDispatch();
+    const { records } = useSelector(state => state.ui);
+
+    useEffect(()=>{
+        dispatch(getRecordsFromFirestore())
+        
+    }, [dispatch]);
+
+    const handleDeleteRecord = ({currentTarget})=>{
+
+        const recordId = Number(currentTarget.id);
+
+        const recordsFiltered = records.filter(record => record.recordId !== recordId );
+        dispatch(updateRecords(recordsFiltered));
+
+    }
+
     return (
-        <div className="row records__body">
-            <table class="table table-records">
+        <div className="row records__body animate__animated animate__fadeInRight">
+            <table className="table table-records">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -16,30 +37,17 @@ export const Records = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>68 kg</td>
-                        <td>1.77 cm</td>
-                        <td>21.0</td>
-                        <td><img className="delete-icon" src={DeleteSVG} alt="" /></td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>68 kg</td>
-                        <td>1.77 cm</td>
-                        <td>21.0</td>
-                        <td><img className="delete-icon" src={DeleteSVG} alt="" /></td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>68 kg</td>
-                        <td>1.77 cm</td>
-                        <td>21.0</td>
-                        <td><img className="delete-icon" src={DeleteSVG} alt="" /></td>
-
-                    </tr>
+                    {records?.map((record, key) => {
+                        return (
+                            <tr key={key}>
+                                <th scopr="row">{key+1}</th>
+                                <td>{record.weight}</td>
+                                <td>{record.height}</td>
+                                <td>{record.bmiScore}</td>
+                                <td id= {record.recordId} onClick={handleDeleteRecord}><img className="delete-icon" src={DeleteSVG} alt="" /></td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
 

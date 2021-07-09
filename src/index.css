@@ -40,7 +40,7 @@ hr {
 }
 
 /**********************************************/
-/*             TYPOGRAPHYC and TEXT            /
+/*                  TYPOGRAPHYC                /
 /**********************************************/
 @font-face {
   font-family: "Orbitron";
@@ -113,6 +113,12 @@ h3 {
   .title {
     text-align: left;
   }
+  .title-form {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    font-size: 4rem;
+  }
 }
 
 /**********************************************/
@@ -149,6 +155,11 @@ h3 {
   .nav-item {
     border-top: 0;
   }
+
+  .nav-item:hover {
+    background: transparent;
+  }
+
 }
 
 /**********************************************/
@@ -188,8 +199,12 @@ h3 {
   border-radius: 0;
 }
 
+form .btn.btn-large {
+  margin: 0 auto;
+}
+
 /**********************************************/
-/*                     FORM                    /
+/*                     LOGIN                   /
 /**********************************************/
 
 .form-control.form-login {
@@ -201,6 +216,11 @@ h3 {
   font-size: 1.4rem;
 }
 
+@media screen and (min-width: 991px) {
+  .block-login {
+    padding-top: 10rem;
+  }
+}
 
 /**********************************************/
 /*                ERROR MESSAGES               /
@@ -265,6 +285,38 @@ h3 {
   font-size: 1.4rem;
   width: 6.5rem;
   height: 4rem;
+}
+
+/**********************************************/
+/*                    BANNER                   /
+/**********************************************/
+.block-banner {
+  background: linear-gradient(var(--color-primary), var(--color-secondary))
+    no-repeat;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 10rem;
+}
+.banner__image {
+  display: block;
+  width: 40.9rem;
+  height: 33.8rem;
+  margin: 0 auto;
+}
+
+.banner__title {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-size: 5rem;
+  color: var(--color-light-accent);
+}
+
+.banner__text {
+  color: var(--color-light-accent);
+  margin-top: 5rem;
+  text-align: center;
+  font-size: 1.6rem;
 }
 
 /**********************************************/
@@ -341,4 +393,21 @@ h3 {
   font-size: 1.2rem;
   color: var(--color-secondary);
   margin-top: 1rem;
+}
+
+@media screen and (min-width: 991px) {
+  .block-footer.footer-form {
+    margin-top: 5rem;
+  }
+}
+
+/**********************************************/
+/*                   LOADING                   /
+/**********************************************/
+
+.block-loading{
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
 }
