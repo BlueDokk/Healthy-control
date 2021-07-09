@@ -8,9 +8,6 @@ const firestoreService = {
     sendData(data, id) {
 
         db.collection("users").doc(id).set({ ...data })
-            .then(() => {
-                console.log("User added successfully");
-            })
             .catch((error) => {
                 toast.error("Error adding user: ", error);
             });
@@ -22,10 +19,8 @@ const firestoreService = {
             .update({
                 records
             })
-            .then(() => {
-                console.log("Document successfully updated!");
-            }).catch(error=>{
-                console.log(error);
+            .catch(error=>{
+                toast.error("Error saving record: ", error);
             })
     },
 

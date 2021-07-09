@@ -82,3 +82,15 @@ export const startLogout = ()=>{
     }
 
 }
+
+export const deleteAccount = (userId)=>{
+
+    return ( dispatch ) =>{
+    
+        firestoreService.deleteUser(userId);
+        authService.deleteAccount(userId);
+        localStorage.clear();
+        dispatch( logout() );
+    }
+
+}

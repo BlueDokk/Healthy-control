@@ -5,16 +5,23 @@ import logoPng2x from '../../assets/images/logo@2x.png';
 import logoWebp from '../../assets/images/logo.webp';
 import logoWebp2x from '../../assets/images/logo@2x.webp';
 import { useDispatch, useSelector } from 'react-redux';
-import { startLogout } from './../../actions/auth';
+import { deleteAccount, startLogout } from './../../actions/auth';
 
 export const Navbar = () => {
 
     const { username } = useSelector(state => state.auth);
+    const { uid: userId } = useSelector(state => state.auth);
+
     const dispatch = useDispatch()
 
     const handleLogout = () => {
         dispatch(startLogout());
         localStorage.clear();
+    };
+
+    const handleDeleteAccount = ()=>{
+
+        dispatch(deleteAccount(userId));
     };
 
     return (
@@ -36,6 +43,13 @@ export const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
+                            <li className="nav-item d-lg-none whitout-hover">
+                                <span
+                                    className="nav-link whitout-hover"
+                                >
+                                    {username}
+                                </span>
+                            </li>
                             <li className="nav-item">
                                 <NavLink
                                     className="nav-link"
@@ -56,6 +70,22 @@ export const Navbar = () => {
                                     About BMI
                                 </NavLink>
                             </li>
+                            <li className="nav-item d-lg-none">
+                                <span
+                                    className="nav-link"
+                                    onClick={handleLogout}
+                                >
+                                    Logout
+                                </span>
+                            </li>
+                            <li className="nav-item d-lg-none">
+                                <span
+                                    className="nav-link"
+                                    onClick={handleDeleteAccount}
+                                >
+                                    Delete Account
+                                </span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -66,7 +96,7 @@ export const Navbar = () => {
 
                         <li className="nav-item whitout-hover">
                             <span className="nav-item nav-link whitout-hover">
-                                { username }
+                                {username}
                             </span>
                         </li>
 
@@ -77,6 +107,15 @@ export const Navbar = () => {
                                 onClick={handleLogout}
                             >
                                 Logout
+                            </button>
+                        </li>
+                        <li className="nav-item">
+                            <button
+                                className="nav-item nav-link btn"
+                                type="button"
+                                onClick={handleDeleteAccount}
+                            >
+                                Delete Account
                             </button>
                         </li>
                     </ul>

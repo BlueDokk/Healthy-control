@@ -66,7 +66,7 @@ export const SignUp = ({ history }) => {
 
     return (
         <div className="row">
-            <div className="col-lg-5 block-login">
+            <div className="col-lg-5 block-login animate__animated animate__fadeIn">
                 <h1 className="title-form">SignUp</h1>
                 <hr className="line-title" />
                 <form className="mt-5 mb-3">

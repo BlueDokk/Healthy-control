@@ -62,8 +62,8 @@ export const Login = ({ history }) => {
     const { renderInput, renderButton } = Form();
 
     return (
-        <div className="row">
-            <div className="col-lg-5 block-login">
+        <div className="row ">
+            <div className="col-lg-5 block-login animate__animated animate__fadeIn">
                 <h1 className="title-form">Login</h1>
                 <hr className="line-title" />
                 <form className="mt-5 mb-3">

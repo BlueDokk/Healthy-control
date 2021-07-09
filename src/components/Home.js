@@ -3,12 +3,10 @@ import React from 'react';
 import { Calculator } from './Calculator';
 import { Records } from './Records';
 import { Footer } from './common/Footer';
-// import { useSelector } from 'react-redux';
 
 
 export const Home = () => {
 
-    // const {uid, displayName:username } = useSelector(state => state.auth);
 
     return (
         <>
